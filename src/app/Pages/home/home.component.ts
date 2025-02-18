@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import fetchFromSpotify, { request } from "../../services/api";
+import fetchFromSpotify, { request } from "../../../services/api";
 
 const AUTH_ENDPOINT =
   "https://nuod0t2zoe.execute-api.us-east-2.amazonaws.com/FT-Classroom/spotify-auth-token";
