@@ -18,14 +18,16 @@ import { TrackMetadataComponent } from "./Components/track-metadata/track-metada
 import { CasualComponent } from "./casual/casual.component";
 import { CompetitiveComponent } from "./competitive/competitive.component";
 
-const routes: Routes = [{ path: "", component: HomeComponent }];
+// const routes: Routes = [{ path: "", component: HomeComponent }];
+// Import AppRoutingModule here
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavbarComponent, LeaderboardComponent, 
     HowToComponent, SettingsComponent, ModeSelectComponent, TimerComponent, AnswerEntryComponent,
   AudioPlayerComponent, CloseButtonComponent, TrackMetadataComponent, CasualComponent, CompetitiveComponent],
 
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, FormsModule, AppRoutingModule], // RouterModule.forRoot(routes) removed this
   providers: [],
   bootstrap: [AppComponent],
 })
