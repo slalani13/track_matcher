@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './casual.component.html',
   styleUrls: ['./casual.component.css']
 })
-export class CasualComponent implements OnInit{
-  constructor() {}
+export class CasualComponent implements OnInit {
+
+  constructor() { }
 
   ngOnInit(): void {
-      
   }
 
 }

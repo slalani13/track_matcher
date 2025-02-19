@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 export enum Tabs {
   Settings,
@@ -16,15 +17,17 @@ export enum Tabs {
 export class NavbarComponent implements OnInit {
   Tabs = Tabs;
   
-  tabActive: Map<Tabs, boolean> = new Map([
-    [Tabs.Settings, false],
-    [Tabs.HowTo, false],
-    [Tabs.Home, false],
-    [Tabs.Leaderboard, false],
-    [Tabs.Modes, false]
-  ]);
+  tabActive: Map<Tabs, boolean> = new Map();
 
-  constructor() {}
+  constructor(private router: Router) {
+    this.tabActive = new Map([
+      [Tabs.Settings, false],
+      [Tabs.HowTo, false],
+      [Tabs.Home, false],
+      [Tabs.Leaderboard, false],
+      [Tabs.Modes, false]
+    ]);
+  }
 
   ngOnInit(): void {}
 
@@ -32,20 +35,21 @@ export class NavbarComponent implements OnInit {
     document.documentElement.classList.toggle('dark');
   }
 
-
   // Toggle based on the selected enum value
   toggleMenu(tab:Tabs): void {
 
-    // Reset all tabs to false
-    this.tabActive.forEach((_, key) => this.tabActive.set(key, false));
-
     // activate selected popup
-    this.tabActive.set(tab, true);
+    if (this.tabActive.get(tab)){
+      this.tabActive.set(tab, false);
+    }
+    else{
+      this.tabActive.set(tab, true);
+    }
 
   }
 
-  updateTabActive(tab: Tabs, isActive: boolean) {
-    this.tabActive.set(tab, isActive);
+  tabClosed(tab: Tabs) {
+    this.tabActive.set(tab, false);
   }
 
 }

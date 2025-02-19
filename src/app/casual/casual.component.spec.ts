@@ -8,7 +8,7 @@ describe('CasualComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CasualComponent]
+      declarations: [ CasualComponent ]
     })
     .compileComponents();
 

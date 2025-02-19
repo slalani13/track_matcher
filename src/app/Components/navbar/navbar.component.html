@@ -16,8 +16,8 @@
   <div class="w-full justify-center hidden md:flex space-x-6">
     <button (click)="toggleMenu(Tabs.Settings)"  class="hover:text-blue-500">Settings</button>
     <button (click)="toggleMenu(Tabs.Modes)" class="hover:text-blue-500">Mode Select</button>
-    <a routerLink="/casual" (click)="toggleMenu(Tabs.Home)">
-      <h1 class="hover:text-blue-500">Home</h1>
+    <a routerLink="/" class="hover:text-blue-500">
+      Home
     </a>
     <button (click)="toggleMenu(Tabs.HowTo)" class="hover:text-blue-500">How To</button>
     <button (click)="toggleMenu(Tabs.Leaderboard)"  class="hover:text-blue-500">Leaderboard</button>
@@ -41,20 +41,20 @@
 
 <app-settings 
 [active]="tabActive.get(Tabs.Settings)??false"
-(activeChange)="updateTabActive(Tabs.Settings, $event)">
+(activeChange)="tabClosed(Tabs.Settings)">
 </app-settings>
 
 <app-how-to 
 [active]="tabActive.get(Tabs.HowTo)??false"
-(activeChange)="updateTabActive(Tabs.HowTo, $event)">
+(activeChange)="tabClosed(Tabs.HowTo)">
 </app-how-to>
 
 <app-mode-select 
 [active]="tabActive.get(Tabs.Modes)??false"
-(activeChange)="updateTabActive(Tabs.Modes, $event)">
+(activeChange)="tabClosed(Tabs.Modes)">
 </app-mode-select>
 
 <app-leaderboard 
 [active]="tabActive.get(Tabs.Leaderboard)??false"
-(activeChange)="updateTabActive(Tabs.Leaderboard, $event)">
+(activeChange)="tabClosed(Tabs.Leaderboard)">
 </app-leaderboard>
