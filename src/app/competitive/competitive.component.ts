@@ -11,4 +11,8 @@ export class CompetitiveComponent implements OnInit{
   ngOnInit(): void {
       
   }
+
+  skipTrack(): void{
+
+  }
 }

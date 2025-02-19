@@ -1,3 +1,19 @@
-<div>
-    <a> Test Competitive </a>
+<div class="mt-10 grid grid-cols-1 gap-10 w-screen place-items-center">
+    <div>
+        <app-audio-player></app-audio-player>
+        <app-track-metadata></app-track-metadata>
+        <!-- skip button -->
+        <button (click)="skipTrack()"  class="w-24 h-8 bg-black">Skip</button>
+    </div>
+
+    <div>
+        <app-answer-entry></app-answer-entry>
+    </div>
+
+    <div class="flex gap-4">
+        <app-timer></app-timer>
+        <app-scoring></app-scoring>
+    </div>
+    
+
 </div>

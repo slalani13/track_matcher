@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
-import { RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
@@ -18,11 +17,12 @@ import { TrackMetadataComponent } from "./Components/track-metadata/track-metada
 import { CasualComponent } from "./casual/casual.component";
 import { CompetitiveComponent } from "./competitive/competitive.component";
 import { AppRoutingModule } from './app-routing.module';
+import { ScoringComponent } from './Components/scoring/scoring.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavbarComponent, LeaderboardComponent, 
     HowToComponent, SettingsComponent, ModeSelectComponent, TimerComponent, AnswerEntryComponent,
-  AudioPlayerComponent, CloseButtonComponent, TrackMetadataComponent, CasualComponent, CompetitiveComponent],
+  AudioPlayerComponent, CloseButtonComponent, TrackMetadataComponent, CasualComponent, CompetitiveComponent, ScoringComponent],
 
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
