@@ -52,4 +52,9 @@ export class NavbarComponent implements OnInit {
     this.tabActive.set(tab, false);
   }
 
+  navigateHome(): void {
+    console.log('Navigating to Home...');
+    this.router.navigate(['/']);
+  }
+
 }

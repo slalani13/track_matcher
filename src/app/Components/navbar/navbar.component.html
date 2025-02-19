@@ -16,9 +16,13 @@
   <div class="w-full justify-center hidden md:flex space-x-6">
     <button (click)="toggleMenu(Tabs.Settings)"  class="hover:text-blue-500">Settings</button>
     <button (click)="toggleMenu(Tabs.Modes)" class="hover:text-blue-500">Mode Select</button>
-    <a routerLink="/" class="hover:text-blue-500">
+    <button (click)="navigateHome()" class="hover:text-blue-500">
       Home
-    </a>
+    </button>
+    
+    <!-- <a routerLink="/" class="hover:text-blue-500">
+      Home
+    </a> -->
     <button (click)="toggleMenu(Tabs.HowTo)" class="hover:text-blue-500">How To</button>
     <button (click)="toggleMenu(Tabs.Leaderboard)"  class="hover:text-blue-500">Leaderboard</button>
   </div>
