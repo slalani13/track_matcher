@@ -1,1 +1,6 @@
-<p>mode-select works!</p>
+<div *ngIf="active" class="w-screen h-screen bg-black bg-opacity-50 fixed top-0 left-0 flex items-center justify-center">
+    <div class="w-96 h-96 bg-black text-white absolute z-10 flex items-center justify-center">
+        <app-close-button (click)="closePopup()" class="absolute top-4 right-4"></app-close-button>
+        <a>This is the mode select</a>
+    </div>
+</div>

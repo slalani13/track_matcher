@@ -14,7 +14,13 @@
   old stuff
   -->
   <div class="w-full justify-center hidden md:flex space-x-6">
-    <a href="#" class="hover:text-blue-500">Home</a>
+    <button (click)="toggleMenu(Tabs.Settings)"  class="hover:text-blue-500">Settings</button>
+    <button (click)="toggleMenu(Tabs.Modes)" class="hover:text-blue-500">Mode Select</button>
+    <a routerLink="/casual" (click)="toggleMenu(Tabs.Home)">
+      <h1 class="hover:text-blue-500">Home</h1>
+    </a>
+    <button (click)="toggleMenu(Tabs.HowTo)" class="hover:text-blue-500">How To</button>
+    <button (click)="toggleMenu(Tabs.Leaderboard)"  class="hover:text-blue-500">Leaderboard</button>
   </div>
 
   <!--
@@ -31,3 +37,24 @@
     🌙
   </button>
 </nav>
+
+
+<app-settings 
+[active]="tabActive.get(Tabs.Settings)??false"
+(activeChange)="updateTabActive(Tabs.Settings, $event)">
+</app-settings>
+
+<app-how-to 
+[active]="tabActive.get(Tabs.HowTo)??false"
+(activeChange)="updateTabActive(Tabs.HowTo, $event)">
+</app-how-to>
+
+<app-mode-select 
+[active]="tabActive.get(Tabs.Modes)??false"
+(activeChange)="updateTabActive(Tabs.Modes, $event)">
+</app-mode-select>
+
+<app-leaderboard 
+[active]="tabActive.get(Tabs.Leaderboard)??false"
+(activeChange)="updateTabActive(Tabs.Leaderboard, $event)">
+</app-leaderboard>

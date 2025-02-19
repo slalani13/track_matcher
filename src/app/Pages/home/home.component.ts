@@ -11,6 +11,9 @@ const TOKEN_KEY = "whos-who-access-token";
   styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
+
+  started: boolean = false;
+
   constructor() {}
 
   genres: String[] = ["House", "Alternative", "J-Rock", "R&B"];
@@ -78,5 +81,13 @@ export class HomeComponent implements OnInit {
     this.selectedGenre = selectedGenre;
     console.log(this.selectedGenre);
     console.log(TOKEN_KEY);
+  }
+
+  start():void{
+    this.started = true;
+  }
+
+  updateStarted(isActive:boolean):void{
+    this.started = isActive;
   }
 }

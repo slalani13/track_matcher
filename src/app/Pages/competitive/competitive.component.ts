@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-competitive',
-  imports: [],
   templateUrl: './competitive.component.html',
-  styleUrl: './competitive.component.css'
+  styleUrls: ['./competitive.component.css']
 })
-export class CompetitiveComponent {
+export class CompetitiveComponent implements OnInit{
+  constructor() {}
 
+  ngOnInit(): void {
+      
+  }
 }

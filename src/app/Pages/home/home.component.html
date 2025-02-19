@@ -6,7 +6,7 @@
       <img class="w-96 h-96" src="assets/menu.png"/>
       <a> This is intro text </a>
       <br/>
-      <button class="bg-black mt-4 w-48 h-16">start (opens modes)</button>
+      <button (click)="start()" class="bg-black mt-4 w-48 h-16">start (opens modes)</button>
     </div>
 
 
@@ -24,3 +24,8 @@
     
   </div>
 </div>
+
+<app-mode-select 
+[active]="started"
+(activeChange)="updateStarted($event)">
+</app-mode-select>

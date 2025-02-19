@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-casual',
-  imports: [],
   templateUrl: './casual.component.html',
-  styleUrl: './casual.component.css'
+  styleUrls: ['./casual.component.css']
 })
-export class CasualComponent {
+export class CasualComponent implements OnInit{
+  constructor() {}
+
+  ngOnInit(): void {
+      
+  }
 
 }
