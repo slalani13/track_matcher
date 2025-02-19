@@ -17,9 +17,6 @@ import { CloseButtonComponent } from "./Components/close-button/close-button.com
 import { TrackMetadataComponent } from "./Components/track-metadata/track-metadata.component";
 import { CasualComponent } from "./casual/casual.component";
 import { CompetitiveComponent } from "./competitive/competitive.component";
-
-// const routes: Routes = [{ path: "", component: HomeComponent }];
-// Import AppRoutingModule here
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -27,7 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
     HowToComponent, SettingsComponent, ModeSelectComponent, TimerComponent, AnswerEntryComponent,
   AudioPlayerComponent, CloseButtonComponent, TrackMetadataComponent, CasualComponent, CompetitiveComponent],
 
-  imports: [BrowserModule, FormsModule, AppRoutingModule], // RouterModule.forRoot(routes) removed this
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
