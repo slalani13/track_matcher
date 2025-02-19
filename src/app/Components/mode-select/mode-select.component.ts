@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mode-select',
@@ -8,8 +9,11 @@ import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@
 export class ModeSelectComponent implements OnInit{
   @Input() active:boolean = false;
   @Output() activeChange = new EventEmitter<boolean>();
+
+  selectedMode: string = '';
   
-  constructor() { }
+  // constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -23,4 +27,14 @@ export class ModeSelectComponent implements OnInit{
   closePopup() : void {
     this.active = false;
   }
+
+  // Handle selection of mode
+  selectMode(mode: string) {
+    this.selectedMode = mode;
+    if (this.selectedMode == 'competitive') {
+      console.log('Navigating to Competitive...');
+      this.router.navigate(['/competitive']);
+    }
+  }
+
 }
