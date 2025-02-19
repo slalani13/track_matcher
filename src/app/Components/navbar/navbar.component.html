@@ -16,9 +16,9 @@
   <div class="w-full justify-center hidden md:flex space-x-6">
     <button (click)="toggleMenu(Tabs.Settings)"  class="hover:text-blue-500">Settings</button>
     <button (click)="toggleMenu(Tabs.Modes)" class="hover:text-blue-500">Mode Select</button>
-    <button (click)="navigateHome()" class="hover:text-blue-500">
+    <a routerLink="/" class="hover:text-blue-500">
       Home
-    </button>
+    </a>
     
     <!-- <a routerLink="/" class="hover:text-blue-500">
       Home
@@ -44,21 +44,17 @@
 
 
 <app-settings 
-[active]="tabActive.get(Tabs.Settings)??false"
-(activeChange)="tabClosed(Tabs.Settings)">
+[active]="tabActive.get(Tabs.Settings)??false">
 </app-settings>
 
 <app-how-to 
-[active]="tabActive.get(Tabs.HowTo)??false"
-(activeChange)="tabClosed(Tabs.HowTo)">
+[active]="tabActive.get(Tabs.HowTo)??false">
 </app-how-to>
 
 <app-mode-select 
-[active]="tabActive.get(Tabs.Modes)??false"
-(activeChange)="tabClosed(Tabs.Modes)">
+[active]="tabActive.get(Tabs.Modes)??false">
 </app-mode-select>
 
 <app-leaderboard 
-[active]="tabActive.get(Tabs.Leaderboard)??false"
-(activeChange)="tabClosed(Tabs.Leaderboard)">
+[active]="tabActive.get(Tabs.Leaderboard)??false">
 </app-leaderboard>

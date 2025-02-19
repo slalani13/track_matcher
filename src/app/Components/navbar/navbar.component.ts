@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 export enum Tabs {
@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   
   tabActive: Map<Tabs, boolean> = new Map();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private cdr:ChangeDetectorRef) {
     this.tabActive = new Map([
       [Tabs.Settings, false],
       [Tabs.HowTo, false],
@@ -37,19 +37,12 @@ export class NavbarComponent implements OnInit {
 
   // Toggle based on the selected enum value
   toggleMenu(tab:Tabs): void {
-
+    
     // activate selected popup
-    if (this.tabActive.get(tab)){
-      this.tabActive.set(tab, false);
-    }
-    else{
-      this.tabActive.set(tab, true);
-    }
+    this.tabActive.forEach((_, key) => this.tabActive.set(key, false));
+    this.tabActive.set(tab, true);
+    this.cdr.detectChanges();
 
-  }
-
-  tabClosed(tab: Tabs) {
-    this.tabActive.set(tab, false);
   }
 
   navigateHome(): void {
