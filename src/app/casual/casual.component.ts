@@ -68,7 +68,7 @@ export class CasualComponent implements OnInit {
         const t = Math.floor(Math.random() * tracks.length);
         this.trackName = tracks[t];
         this.anagram = this.getAnagram(this.trackName);
-        this.anagram_array = this.anagram.split('');
+        this.getAnagrams(this.trackName);
         if (this.answerEntryComponent) {
           this.answerEntryComponent.resetAnswer();
         }
@@ -82,7 +82,7 @@ export class CasualComponent implements OnInit {
 
   getAnagram(trackName: string): string {
     if (!trackName) return '';
-  
+    this.anagram_array = [];
     const characters = trackName.split('');
   
     for (let i = characters.length - 1; i > 0; i--) {
@@ -90,5 +90,21 @@ export class CasualComponent implements OnInit {
       [characters[i], characters[j]] = [characters[j], characters[i]]; // Swap elements
     }
     return characters.join('');
+  }
+
+  getAnagrams(trackName: string): void {
+    if (!trackName) return;
+    // Remove the part after "(" including the parentheses (if any)
+    const trackNameWithoutParentheses = trackName.split('(')[0].trim();
+    // Split the remaining track name into words
+    const words = trackNameWithoutParentheses.split(' ');
+    for (let word of words) {
+      const characters = word.split('');
+      for (let i = characters.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1)); // Get a random index
+        [characters[i], characters[j]] = [characters[j], characters[i]]; // Swap elements
+      }
+      this.anagram_array.push(characters.join(''));
+    }
   }
 }
