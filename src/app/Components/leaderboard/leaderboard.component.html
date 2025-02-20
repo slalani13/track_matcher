@@ -5,14 +5,16 @@
         <!-- Leaderboard display -->
         <div *ngIf="leaderboard.length > 0; else noEntries" class="w-full">
           <p class="text-xl text-center flex justify-center items-start w-full">Leaderboard</p>
-          <ul>
-            <li *ngFor="let entry of leaderboard" class=" p-1 m-2 rounded-lg text-white flex justify-between items-center shadow-md">
-              <span class="text-red-400">Username: </span> 
-              <span class="mx-2">{{ entry.name }}</span> 
-              <span class="text-yellow-400">Score: </span> 
-              <span class="mx-2">{{ entry.score }}</span>
-            </li>
-          </ul>
+          <div class="max-h-64 overflow-y-auto w-full mt-2">
+            <ul>
+              <li *ngFor="let entry of leaderboard" class="p-2 m-2 rounded-lg text-white flex justify-between items-center shadow-md">
+                <span class="text-red-400">Username:</span> 
+                <span class="mx-2">{{ entry.name }}</span> 
+                <span class="text-yellow-400">Score:</span> 
+                <span class="mx-2">{{ entry.score }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <ng-template #noEntries>
