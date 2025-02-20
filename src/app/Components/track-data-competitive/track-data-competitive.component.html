@@ -4,7 +4,10 @@
         <ng-container *ngFor="let char of track_name_seen">
             <div *ngIf="char === ' '; else letter" class="w-full"></div>
             <ng-template #letter>
-                <div class="items-center justify-center flex h-16 w-16 bg-black">
+                <div 
+                    class="items-center justify-center flex h-16 w-16 bg-black"
+                    [ngClass]="{'text-green-300': isVowel(char), 'text-white': !isVowel(char) || notArchitect()}"
+                >
                     {{ char }}
                 </div>
             </ng-template>

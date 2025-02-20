@@ -11,6 +11,7 @@ const LEADERBOARD_KEY = "who's who leaderboard"
 export class GameOverCompetitiveComponent implements OnInit {
 
   @ViewChild('leaderboard') leaderboardComponent!: LeaderboardComponent;
+  @Output() resetGame = new EventEmitter<void>();
 
   @Input() active:boolean = false;
   points:number = 0;
@@ -32,10 +33,12 @@ export class GameOverCompetitiveComponent implements OnInit {
   addToLeaderboard(): void {
     this.leaderboardComponent.getLeaderboard();
     this.leaderboardComponent.addToLeaderboard(this.username, this.points);
+    this.resetGame.emit();
     this.close();
   }
 
   close() : void {
+    this.resetGame.emit();
     this.active = false;
   }
 

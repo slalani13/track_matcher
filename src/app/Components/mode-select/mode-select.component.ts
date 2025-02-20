@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import {classes} from '../../Models/classData';
 
 @Component({
   selector: 'app-mode-select',
@@ -10,6 +11,7 @@ export class ModeSelectComponent implements OnInit{
   @Input() active:boolean = false;
   @Output() activeChange = new EventEmitter<boolean>();
 
+  classes = classes;
   selectedMode: string = '';
   selectedArtistId: string = ''; // Now stores artist ID instead of name
 
@@ -30,15 +32,16 @@ export class ModeSelectComponent implements OnInit{
     this.active = false;
   }
 
-  // Handle selection of mode
+  // Handle selection of mode  - using select class instead
   selectMode(mode: string) {
     this.selectedMode = mode;
-    if (this.selectedMode == 'competitive') {
-      console.log('Navigating to Competitive...');
-      this.closePopup();
-      this.selectedMode = '';
-      this.router.navigate(['/competitive']);
-    }
+  }
+
+  selectClass(c: classes){
+    console.log('Navigating to Competitive...');
+    this.closePopup();
+    this.selectedMode = '';
+    this.router.navigate(['/competitive'], { queryParams: { chosen_class: c } });
   }
   
   submitArtistName() {

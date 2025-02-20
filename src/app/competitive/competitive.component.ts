@@ -4,6 +4,10 @@ import { getTrackNamesFromArtist } from 'src/services/getTrackNames';
 import { request } from "../../services/api";
 import { ScoringComponent } from '../Components/scoring/scoring.component';
 import { GameOverCompetitiveComponent } from '../Components/game-over-competitive/game-over-competitive.component';
+import { classes } from '../Models/classData';
+import { ActivatedRoute } from '@angular/router';
+import { TimerComponent } from '../Components/timer/timer.component';
+import { timer } from 'rxjs';
 
 const AUTH_ENDPOINT =
   "https://nuod0t2zoe.execute-api.us-east-2.amazonaws.com/FT-Classroom/spotify-auth-token";
@@ -18,6 +22,7 @@ const TOKEN_KEY = "whos-who-access-token";
 export class CompetitiveComponent implements OnInit{
   @ViewChild('scoring') scoringComponent!: ScoringComponent;
   @ViewChild('gameOver') gameOverCompetitiveComponent!: GameOverCompetitiveComponent;
+  @ViewChild('timer') timerComponent!: TimerComponent;
   
   artist_ids:Map<string, string> = new Map();
   artist_name:string = "";
@@ -25,11 +30,22 @@ export class CompetitiveComponent implements OnInit{
   attempts:number = 0;
   isGameOver:boolean = false;
 
-  constructor() {
+  chosen_class:classes = classes.EQUALIZER;
+
+  constructor(private route: ActivatedRoute) {
     this.artist_ids = artistIds
   }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const classValue = Number(params['chosen_class']);
+      if (Object.values(classes).includes(classValue)) {
+        this.chosen_class = classValue as classes;
+      } else {
+        this.chosen_class = classes.EQUALIZER;
+      }
+    });
+
     this.createToken();
     this.selectRandomTrack();
   }
@@ -73,6 +89,12 @@ export class CompetitiveComponent implements OnInit{
       }
       return;
     })
+  }
+
+  resetGame():void{
+    this.scoringComponent.points = 0;
+    this.timerComponent.resetTimer();
+    this.isGameOver = false;
   }
 
   onAnswerSubmit(correct: boolean): void{

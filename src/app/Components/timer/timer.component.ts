@@ -21,6 +21,10 @@ export class TimerComponent implements OnInit{
 
   ngOnInit(): void {
     this.time = JSON.parse(localStorage.getItem(SETTINGS_KEY)!).competitive_time
+    this.startTimer();
+  }
+
+  startTimer(){
     this.timerSubscription = interval(1000).subscribe(() => {
       this.time -= 1;
 
@@ -28,6 +32,12 @@ export class TimerComponent implements OnInit{
         this.timerComplete();
       }
     });
+  }
+
+  resetTimer(){
+    this.time = JSON.parse(localStorage.getItem(SETTINGS_KEY)!).competitive_time
+    this.finished = false;
+    this.startTimer();
   }
 
   timerComplete(){
