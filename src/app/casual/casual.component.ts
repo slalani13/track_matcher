@@ -13,6 +13,7 @@ export class CasualComponent implements OnInit {
   artistId: string = '';
   trackName: string = '';
   anagram: string = '';
+  anagram_array: string[] = [];
 
   @ViewChild(AnswerEntryComponent) answerEntryComponent!: AnswerEntryComponent; // Access AnswerEntryComponent
 
@@ -41,6 +42,7 @@ export class CasualComponent implements OnInit {
         const t = Math.floor(Math.random() * tracks.length);
         this.trackName = tracks[t];
         this.anagram = this.getAnagram(this.trackName);
+        this.anagram_array = this.anagram.split('');
         if (this.answerEntryComponent) {
           this.answerEntryComponent.resetAnswer();
         }
