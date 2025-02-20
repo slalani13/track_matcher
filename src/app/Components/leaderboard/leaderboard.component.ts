@@ -14,6 +14,15 @@ export class LeaderboardComponent implements OnInit{
   constructor() { }
 
   ngOnInit(): void {
+    this.initialize_leaderboard();
+  }
+
+  initialize_leaderboard(): void{
+    if (localStorage.getItem(LEADERBOARD_KEY) == undefined){
+      localStorage.setItem(LEADERBOARD_KEY,JSON.stringify({}))
+    }
+    //this.leaderboard = JSON.parse(localStorage.getItem(LEADERBOARD_KEY)!).value
+
   }
 
   closePopup() : void {
