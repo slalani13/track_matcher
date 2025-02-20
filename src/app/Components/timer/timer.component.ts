@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import { interval, Subscription } from 'rxjs';
 export class TimerComponent implements OnInit{
 
   finished:boolean = false;
-  time:number = 15;
+  @Input() time:number = 60;
   @Output() gameOver = new EventEmitter<void>();
   private timerSubscription?: Subscription;
 
