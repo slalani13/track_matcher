@@ -1,13 +1,12 @@
 <div class="mt-10 grid grid-cols-1 gap-10 w-screen place-items-center">
     <div>
-        <app-audio-player></app-audio-player>
-        <app-track-metadata></app-track-metadata>
+        <app-track-data-competitive [track_name]="track_name" [artist]="artist_name"></app-track-data-competitive>
         <!-- skip button -->
         <button (click)="skipTrack()"  class="w-24 h-8 bg-black">Skip</button>
     </div>
 
     <div>
-        <app-answer-entry></app-answer-entry>
+        <app-text-entry-competitive></app-text-entry-competitive>
     </div>
 
     <div class="flex gap-4">

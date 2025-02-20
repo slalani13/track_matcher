@@ -18,11 +18,13 @@ import { CasualComponent } from "./casual/casual.component";
 import { CompetitiveComponent } from "./competitive/competitive.component";
 import { AppRoutingModule } from './app-routing.module';
 import { ScoringComponent } from './Components/scoring/scoring.component';
+import { TextEntryCompetitiveComponent } from './Components/text-entry-competitive/text-entry-competitive.component';
+import { TrackDataCompetitiveComponent } from './Components/track-data-competitive/track-data-competitive.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavbarComponent, LeaderboardComponent, 
     HowToComponent, SettingsComponent, ModeSelectComponent, TimerComponent, AnswerEntryComponent,
-  AudioPlayerComponent, CloseButtonComponent, TrackMetadataComponent, CasualComponent, CompetitiveComponent, ScoringComponent],
+  AudioPlayerComponent, CloseButtonComponent, TrackMetadataComponent, CasualComponent, CompetitiveComponent, ScoringComponent, TextEntryCompetitiveComponent, TrackDataCompetitiveComponent],
 
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
