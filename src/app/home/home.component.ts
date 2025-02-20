@@ -24,7 +24,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.authLoading = true;
+    this.initializeLeaderboard();
     this.createToken();
+  }
+
+  initializeLeaderboard(): void {
+    // Check if the leaderboard exists in localStorage
+    const existingLeaderboard = localStorage.getItem('leaderboard');
+    console.log("This is the leaderboard: " + existingLeaderboard);
+    if (!existingLeaderboard) {
+      // If it doesn't exist, set an empty leaderboard
+      localStorage.setItem('leaderboard', JSON.stringify([]));
+    }
   }
 
   createToken() {
