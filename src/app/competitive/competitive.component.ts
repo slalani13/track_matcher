@@ -29,13 +29,15 @@ export class CompetitiveComponent implements OnInit{
       return;
     }
     const r = Math.floor(Math.random() * artist_names.length);
-    const tracks = getTrackNamesFromArtist(artistIds.get(artist_names[r])!).then(() =>{
+     getTrackNamesFromArtist(artistIds.get(artist_names[r])!).then((tracks) =>{
       if (Array.isArray(tracks) && tracks.length > 0){
         const t = Math.floor(Math.random() * tracks.length);
         this.artist_name = artist_names[r];
         this.track_name = tracks[t];
       }
-      console.log("No tracks found for artist "+artist_names[r]);
+      else{
+        console.log("No tracks found for artist "+artist_names[r]);
+      }
       return;
     })
   }
