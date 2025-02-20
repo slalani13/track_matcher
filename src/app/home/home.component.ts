@@ -38,6 +38,16 @@ export class HomeComponent implements OnInit {
     console.log("This is the leaderboard: " + existingLeaderboard);
   }
 
+  initializeSettings(): void {
+    // Check if the leaderboard exists in localStorage
+    const existingLeaderboard = localStorage.getItem('leaderboard');
+    if (!existingLeaderboard) {
+      // If it doesn't exist, set an empty leaderboard
+      localStorage.setItem('leaderboard', JSON.stringify([]));
+    }
+    console.log("This is the leaderboard: " + existingLeaderboard);
+  }
+
   createToken() {
     const storedTokenString = localStorage.getItem(TOKEN_KEY);
     if (storedTokenString) {

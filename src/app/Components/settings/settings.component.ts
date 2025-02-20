@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { difficulty, Settings } from 'src/app/Models/settings';
+
+const SETTINGS_KEY = "who's who settings"
 
 @Component({
   selector: 'app-settings',
