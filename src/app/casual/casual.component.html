@@ -1,1 +1,11 @@
 <p>casual works!</p>
+
+<div *ngIf="artistName">
+  <h1>Welcome to the Casual Game!</h1>
+  <p>Selected Artist: {{ artistName }}</p>
+  <p>Selected Artist ID: {{ artistId }}</p>
+</div>
+
+<div *ngIf="!artistName">
+  <p>No artist selected. Please go back and choose an artist.</p>
+</div>
