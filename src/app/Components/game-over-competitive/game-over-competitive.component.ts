@@ -16,7 +16,7 @@ export class GameOverCompetitiveComponent implements OnInit {
   @Input() active:boolean = false;
   points:number = 0;
 
-  username:string = ""
+  username:string = "player"
 
   constructor() { 
 
@@ -31,10 +31,12 @@ export class GameOverCompetitiveComponent implements OnInit {
   }
 
   addToLeaderboard(): void {
-    this.leaderboardComponent.getLeaderboard();
-    this.leaderboardComponent.addToLeaderboard(this.username, this.points);
-    this.resetGame.emit();
-    this.close();
+    if (this.username != ""){
+      this.leaderboardComponent.getLeaderboard();
+      this.leaderboardComponent.addToLeaderboard(this.username, this.points);
+      this.resetGame.emit();
+      this.close();
+    }
   }
 
   close() : void {
