@@ -1,11 +1,9 @@
-export enum difficulty{
-    EASY,
-    NORMAL,
-    DIFFICULT
-}
-
 export interface Settings {
     theme: string;
-    competitive_difficulty: difficulty;
     competitive_time: number;
 }
+
+export const default_settings: Settings = {
+    theme: "dark",
+    competitive_time: 30,
+};

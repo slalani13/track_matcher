@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import fetchFromSpotify, { request } from "../../services/api";
+import {default_settings} from "../Models/settings";
+
+const SETTINGS_KEY = "who's who settings"
 
 const AUTH_ENDPOINT =
   "https://nuod0t2zoe.execute-api.us-east-2.amazonaws.com/FT-Classroom/spotify-auth-token";
@@ -25,6 +28,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.authLoading = true;
     this.initializeLeaderboard();
+    this.initializeSettings();
     this.createToken();
   }
 
@@ -39,13 +43,13 @@ export class HomeComponent implements OnInit {
   }
 
   initializeSettings(): void {
-    // Check if the leaderboard exists in localStorage
-    const existingLeaderboard = localStorage.getItem('leaderboard');
-    if (!existingLeaderboard) {
-      // If it doesn't exist, set an empty leaderboard
-      localStorage.setItem('leaderboard', JSON.stringify([]));
+    // Check if settings exists in localStorage
+    const existingSettings = localStorage.getItem(SETTINGS_KEY);
+    if (!existingSettings) {
+      // If it doesn't exist, set default settings empty settings
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(default_settings));
     }
-    console.log("This is the leaderboard: " + existingLeaderboard);
+    console.log("This is the settings: " + existingSettings);
   }
 
   createToken() {
