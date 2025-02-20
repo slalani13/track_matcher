@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-timer',
@@ -7,14 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimerComponent implements OnInit{
 
-  timer:number = 10;
+  finished:boolean = false;
+  time:number = 5;
+  @Output() gameOver = new EventEmitter<void>();
+  private timerSubscription?: Subscription;
 
   constructor() {
 
   }
 
   ngOnInit(): void {
+    this.timerSubscription = interval(1000).subscribe(() => {
+      this.time -= 1;
 
+      if (this.time == 0) {
+        this.timerComplete();
+      }
+    });
+  }
+
+  timerComplete(){
+    this.timerSubscription?.unsubscribe();
+    this.gameOver.emit();
+    this.finished = true;
+    console.log("time's up")
+  }
+
+  ngOnDestroy(): void {
+    this.timerSubscription?.unsubscribe();
   }
 
 }

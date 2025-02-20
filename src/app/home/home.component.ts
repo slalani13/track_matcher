@@ -24,6 +24,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.authLoading = true;
+    this.createToken();
+  }
+
+  createToken() {
     const storedTokenString = localStorage.getItem(TOKEN_KEY);
     if (storedTokenString) {
       const storedToken = JSON.parse(storedTokenString);
