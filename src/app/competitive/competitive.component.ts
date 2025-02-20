@@ -3,6 +3,7 @@ import { artistIds } from '../Models/artistData';
 import { getTrackNamesFromArtist } from 'src/services/getTrackNames';
 import { request } from "../../services/api";
 import { ScoringComponent } from '../Components/scoring/scoring.component';
+import { GameOverCompetitiveComponent } from '../Components/game-over-competitive/game-over-competitive.component';
 
 const AUTH_ENDPOINT =
   "https://nuod0t2zoe.execute-api.us-east-2.amazonaws.com/FT-Classroom/spotify-auth-token";
@@ -16,12 +17,13 @@ const TOKEN_KEY = "whos-who-access-token";
 })
 export class CompetitiveComponent implements OnInit{
   @ViewChild('scoring') scoringComponent!: ScoringComponent;
+  @ViewChild('gameOver') gameOverCompetitiveComponent!: GameOverCompetitiveComponent;
   
   artist_ids:Map<string, string> = new Map();
   artist_name:string = "";
   track_name:string = "";
   attempts:number = 0;
-  gameOver:boolean = false;
+  isGameOver:boolean = false;
 
   constructor() {
     this.artist_ids = artistIds
@@ -86,7 +88,8 @@ export class CompetitiveComponent implements OnInit{
   }
 
   gameFinish(): void{
-    this.gameOver = true;
+    this.isGameOver = true;
+    this.gameOverCompetitiveComponent.points = this.scoringComponent.points;
     console.log("game over");
   }
 

@@ -9,7 +9,7 @@ import { interval, Subscription } from 'rxjs';
 export class TimerComponent implements OnInit{
 
   finished:boolean = false;
-  @Input() time:number = 60;
+  time:number = 10;
   @Output() gameOver = new EventEmitter<void>();
   private timerSubscription?: Subscription;
 

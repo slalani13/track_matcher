@@ -1,11 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {LeaderboardEntry} from "../../Models/leaderboardEntry"
 
 const LEADERBOARD_KEY = "leaderboard"
-
-interface LeaderboardEntry {
-  name: string;
-  score: number;
-}
 
 @Component({
   selector: 'app-leaderboard',

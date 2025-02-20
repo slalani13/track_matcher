@@ -25,7 +25,8 @@ import { GameOverCompetitiveComponent } from './Components/game-over-competitive
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavbarComponent, LeaderboardComponent, 
     HowToComponent, SettingsComponent, ModeSelectComponent, TimerComponent, AnswerEntryComponent,
-  AudioPlayerComponent, CloseButtonComponent, TrackMetadataComponent, CasualComponent, CompetitiveComponent, ScoringComponent, TextEntryCompetitiveComponent, TrackDataCompetitiveComponent, GameOverCompetitiveComponent],
+  AudioPlayerComponent, CloseButtonComponent, TrackMetadataComponent, CasualComponent, CompetitiveComponent, ScoringComponent,
+   TextEntryCompetitiveComponent, TrackDataCompetitiveComponent, GameOverCompetitiveComponent],
 
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
