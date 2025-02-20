@@ -31,16 +31,17 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  toggleDarkMode(): void {
-    document.documentElement.classList.toggle('dark');
-  }
-
-  // Toggle based on the selected enum value
   toggleMenu(tab:Tabs): void {
-    
-    // activate selected popup
-    this.tabActive.forEach((_, key) => this.tabActive.set(key, false));
-    this.tabActive.set(tab, true);
+    const isActive = this.tabActive.get(tab);
+    if (isActive) {
+        this.tabActive.set(tab, false);
+    } else {
+        // Set all tabs to false (close all popups)
+        this.tabActive.forEach((_, key) => this.tabActive.set(key, false));
+        // Activate the selected tab
+        this.tabActive.set(tab, true);
+    }
+    // Trigger Angular's change detection explicitly to reflect changes immediately
     this.cdr.detectChanges();
 
   }
@@ -49,5 +50,4 @@ export class NavbarComponent implements OnInit {
     console.log('Navigating to Home...');
     this.router.navigate(['/']);
   }
-
 }

@@ -1,8 +1,18 @@
 <div *ngIf="active" class="w-screen h-screen bg-black bg-opacity-50 fixed top-0 left-0 flex items-center justify-center">
     <div class="w-96 h-96 bg-black text-white absolute z-10 flex items-center justify-center">
         <app-close-button (click)="closePopup()" class="absolute top-4 right-4"></app-close-button>
-        <a>This is the mode select</a>
-        <button (click)="selectMode('casual')" class="bg-blue-500 text-white p-2 rounded">Casual</button>
-      <button (click)="selectMode('competitive')" class="bg-green-500 text-white p-2 rounded">Competitive</button>
+
+        <div class="space-y-4 flex flex-col">
+            <!-- Buttons for Casual and Competitive -->
+            <button (click)="selectMode('casual')" class="bg-blue-500 text-white p-2 m-2 rounded">Casual</button>
+            <!-- Conditionally show artist name input if Casual is selected -->
+            <div *ngIf="selectedMode == 'casual'" class="mt-4 flex">
+                <select [(ngModel)]="selectedArtistId" class="text-black p-2 rounded-l border">
+                    <option *ngFor="let artist of artists" [value]="artist.id">{{ artist.name }}</option>
+                </select>
+                <button (click)="submitArtistName()" class="bg-purple-500 text-white p-2 rounded-r">Submit</button>
+              </div>
+            <button (click)="selectMode('competitive')" class="bg-green-500 text-white p-2 m-2 rounded">Competitive</button>
+        </div>
     </div>
 </div>
