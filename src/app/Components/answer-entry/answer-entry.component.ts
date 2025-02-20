@@ -17,11 +17,24 @@ export class AnswerEntryComponent implements OnInit{
   ngOnInit(): void {
   }
 
-  submit():void {
-    if (this.answer && this.answer.trim().toLowerCase() === this.correctAnswer.trim().toLowerCase()) {
-      this.isCorrect = true;
-    } else{
+  // submit():void {
+  //   if (this.answer && this.answer.trim().toLowerCase() === this.correctAnswer.trim().toLowerCase()) {
+  //     this.isCorrect = true;
+  //   } else{
+  //     this.isCorrect = false;
+  //   }
+  // }
+
+  submits():void {
+    if (this.answer) {
+      const correctAnswerWithoutParenthesis = this.correctAnswer.split("(")[0].trim().toLowerCase();
+      console.log("This is correct answer: " + correctAnswerWithoutParenthesis);
+      if (this.answer.trim().toLowerCase() === correctAnswerWithoutParenthesis) {
+        this.isCorrect = true;
+      } else{
       this.isCorrect = false;
+      }
+    console.log("we are in submits function. " + this.answer);
     }
   }
 

@@ -29,6 +29,7 @@ export class LeaderboardComponent implements OnInit{
 
   loadLeaderboard(): void {
     this.leaderboard = this.getLeaderboard();
+    this.leaderboard.sort((a, b) => b.score - a.score);
     console.log("Leaderboard loaded:", this.leaderboard);
   }
 
