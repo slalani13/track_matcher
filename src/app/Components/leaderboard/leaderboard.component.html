@@ -2,9 +2,9 @@
     <div class="w-96 h-96 bg-black text-white absolute z-10 flex items-center justify-center">
         <app-close-button (click)="closePopup()" class="absolute top-4 right-4"></app-close-button>
       <div class="flex flex-col">
-        <button (click)="addToLeaderboard('test1', 5)" class="py-2 px-4 bg-blue-600 text-white rounded mb-4 hover:bg-blue-700">
+        <!-- <button (click)="addToLeaderboard('test1', 5)" class="py-2 px-4 bg-blue-600 text-white rounded mb-4 hover:bg-blue-700">
           Add to leaderboard
-        </button>
+        </button> -->
         <!-- Leaderboard display -->
         <div *ngIf="leaderboard.length > 0; else noEntries" class="w-full">
           <!-- Header row for Username and Score -->

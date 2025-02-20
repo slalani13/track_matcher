@@ -32,6 +32,7 @@ export class GameOverCompetitiveComponent implements OnInit {
   addToLeaderboard(): void {
     this.leaderboardComponent.getLeaderboard();
     this.leaderboardComponent.addToLeaderboard(this.username, this.points);
+    this.close();
   }
 
   close() : void {
