@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 
+const LEADERBOARD_KEY = "who's who leaderboard"
+
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
