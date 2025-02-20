@@ -40,17 +40,21 @@
 
 
 <app-settings 
-[active]="tabActive.get(Tabs.Settings)??false">
+[active]="tabActive.get(Tabs.Settings)??false"
+(activeChange)="update_tabs()">
 </app-settings>
 
 <app-how-to 
-[active]="tabActive.get(Tabs.HowTo)??false">
+[active]="tabActive.get(Tabs.HowTo)??false"
+(activeChange)="update_tabs()">
 </app-how-to>
 
 <app-mode-select 
-[active]="tabActive.get(Tabs.Modes)??false">
+[active]="tabActive.get(Tabs.Modes)??false"
+(activeChange)="update_tabs()">
 </app-mode-select>
 
 <app-leaderboard 
-[active]="tabActive.get(Tabs.Leaderboard)??false">
+[active]="tabActive.get(Tabs.Leaderboard)??false"
+(activeChange)="update_tabs()">
 </app-leaderboard>

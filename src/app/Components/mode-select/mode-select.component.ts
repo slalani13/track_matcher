@@ -25,13 +25,8 @@ export class ModeSelectComponent implements OnInit{
   ngOnInit(): void {
   }
 
-   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['active']) {
-      this.activeChange.emit(changes['active'].currentValue);
-    }
-  }
-
   closePopup() : void {
+    this.activeChange.emit();
     this.active = false;
   }
 

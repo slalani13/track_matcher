@@ -18,8 +18,10 @@ export class NavbarComponent implements OnInit {
   Tabs = Tabs;
   
   tabActive: Map<Tabs, boolean> = new Map();
+  current_tab:string = ""
 
-  constructor(private router: Router, private cdr:ChangeDetectorRef) {
+  constructor(private router: Router) {
+    this.current_tab = "Home"
     this.tabActive = new Map([
       [Tabs.Settings, false],
       [Tabs.HowTo, false],
@@ -33,6 +35,7 @@ export class NavbarComponent implements OnInit {
 
   toggleMenu(tab:Tabs): void {
     const isActive = this.tabActive.get(tab);
+
     if (isActive) {
         this.tabActive.set(tab, false);
     } else {
@@ -41,9 +44,11 @@ export class NavbarComponent implements OnInit {
         // Activate the selected tab
         this.tabActive.set(tab, true);
     }
-    // Trigger Angular's change detection explicitly to reflect changes immediately
-    this.cdr.detectChanges();
 
+  }
+
+  update_tabs(): void{
+    this.tabActive.forEach((_, key) => this.tabActive.set(key, false));
   }
 
   navigateHome(): void {
