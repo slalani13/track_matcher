@@ -1,6 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-const LEADERBOARD_KEY = "who's who leaderboard"
+const LEADERBOARD_KEY = "leaderboard"
+
+interface LeaderboardEntry {
+  name: string;
+  score: number;
+}
 
 @Component({
   selector: 'app-leaderboard',
@@ -10,20 +15,25 @@ const LEADERBOARD_KEY = "who's who leaderboard"
 export class LeaderboardComponent implements OnInit{
   @Input() active:boolean = false;
   @Output() activeChange = new EventEmitter<boolean>();
+  leaderboard: LeaderboardEntry[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    // this.initialize_leaderboard();
+    this.leaderboard = this.getLeaderboard();
+    console.log("Leaderboard loaded:", this.leaderboard);
   }
 
-  // initialize_leaderboard(): void{
-  //   if (localStorage.getItem(LEADERBOARD_KEY) == undefined){
-  //     localStorage.setItem(LEADERBOARD_KEY,JSON.stringify({}))
-  //   }
-  //   //this.leaderboard = JSON.parse(localStorage.getItem(LEADERBOARD_KEY)!).value
+  getLeaderboard(): LeaderboardEntry[] {
+    return JSON.parse(localStorage.getItem(LEADERBOARD_KEY) || '[]') as LeaderboardEntry[];
+  }
 
-  // }
+  addToLeaderboard(username: string, newscore: number): void {
+    const leaderboard = this.getLeaderboard();
+    const entry: LeaderboardEntry = { name: username, score: newscore };
+    leaderboard.push(entry);
+    localStorage.setItem(LEADERBOARD_KEY, JSON.stringify(leaderboard));
+  }
 
   closePopup() : void {
     this.activeChange.emit();

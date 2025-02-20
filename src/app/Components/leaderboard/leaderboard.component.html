@@ -1,6 +1,29 @@
 <div *ngIf="active" class="w-screen h-screen bg-black bg-opacity-50 fixed top-0 left-0 flex items-center justify-center">
     <div class="w-96 h-96 bg-black text-white absolute z-10 flex items-center justify-center">
         <app-close-button (click)="closePopup()" class="absolute top-4 right-4"></app-close-button>
-        <a>This is the leaderboard</a>
+      <div class="flex flex-col">
+        <button (click)="addToLeaderboard('test1', 5)" class="py-2 px-4 bg-blue-600 text-white rounded mb-4 hover:bg-blue-700">
+          Add to leaderboard
+        </button>
+        <!-- Leaderboard display -->
+        <div *ngIf="leaderboard.length > 0; else noEntries" class="w-full">
+          <!-- Header row for Username and Score -->
+          <div class="flex justify-between font-semibold text-lg mb-4">
+            <span class="w-1/2 text-left">Username</span>
+            <span class="w-1/2 text-right">Score</span>
+          </div>
+
+          <ul>
+            <li *ngFor="let entry of leaderboard" class="bg-blue-500 p-4 m-2 rounded-lg text-white flex justify-between items-center shadow-md">
+              <span>{{ entry.name }}:</span> <span>{{ entry.score }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <ng-template #noEntries>
+          <p>No leaderboard entries yet.</p>
+      </ng-template>
     </div>
 </div>
+
+
