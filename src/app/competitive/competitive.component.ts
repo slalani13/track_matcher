@@ -29,6 +29,7 @@ export class CompetitiveComponent implements OnInit{
   track_name:string = "";
   attempts:number = 0;
   isGameOver:boolean = false;
+  showAnswerStatus:boolean = false;
 
   chosen_class:classes = classes.EQUALIZER;
 
@@ -95,10 +96,12 @@ export class CompetitiveComponent implements OnInit{
     this.scoringComponent.points = 0;
     this.timerComponent.resetTimer();
     this.isGameOver = false;
+    this.showAnswerStatus = false;
   }
 
   onAnswerSubmit(correct: boolean): void{
     this.scoringComponent.answerStatus(correct, this.attempts);
+    this.showAnswerStatus = true;
     if(correct){
       this.attempts = 0;
       this.skipTrack();

@@ -4,7 +4,7 @@
     </div>
 
     <div class="flex flex-col flex-[0.5] gap-4 items-center">
-        <button (click)="skipTrack()" class="w-24 h-8 bg-black mb-5">Skip</button>
+        <button (click)="skipTrack()" class=" hover:animate-pulse w-24 h-8 bg-black mb-5">Skip</button>
 
         <app-text-entry-competitive 
             [correctAnswer]="track_name"
@@ -13,7 +13,7 @@
 
         <div class="flex gap-4">
             <app-timer #timer (gameOver)="gameFinish()"></app-timer>
-            <app-scoring #scoring></app-scoring>
+            <app-scoring [showStatus]="showAnswerStatus" #scoring></app-scoring>
         </div>
     </div>
 </div>

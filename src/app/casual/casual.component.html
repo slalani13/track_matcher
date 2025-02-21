@@ -4,7 +4,7 @@
 
     <div class="w-full h-96 min-h-72 flex flex-col justify-center items-center mb-4 p-2 overflow-hidden">
       <div *ngFor="let word of anagram_array" class="flex items-center justify-center mb-2">
-        <span *ngFor="let letter of word.split('')" class="w-10 h-10 bg-white text-blue-400 flex items-center justify-center font-bold text-xl rounded-md shadow-lg m-1 border border-black">
+        <span *ngFor="let letter of word.split('')" class="hover:animate-bounce w-10 h-10 bg-white text-blue-400 flex items-center justify-center font-bold text-xl rounded-md shadow-lg m-1 border border-black">
           {{ letter }}
         </span>
       </div>
@@ -15,7 +15,7 @@
   <div *ngIf="!artistName">
     <p>No artist selected. Please go back and choose an artist.</p>
   </div>  
-  <button (click)="getRandomTrack()" class="bg-violet-400 py-2 px-4 rounded-lg m-2">New Song</button>
+  <button (click)="getRandomTrack()" class="hover:animate-pulse bg-violet-400 py-2 px-4 rounded-lg m-2">New Song</button>
   <app-answer-entry [correctAnswer]="trackName"></app-answer-entry>
 </div>
 

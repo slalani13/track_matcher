@@ -5,7 +5,7 @@
             <div *ngIf="char === ' '; else letter" class="w-full"></div>
             <ng-template #letter>
                 <div 
-                    class="items-center justify-center flex h-16 w-16 bg-black"
+                    class="items-center justify-center flex h-16 w-16 bg-black hover:animate-bounce"
                     [ngClass]="{'text-green-300': isVowel(char), 'text-white': !isVowel(char) || notArchitect()}"
                 >
                     {{ char }}
