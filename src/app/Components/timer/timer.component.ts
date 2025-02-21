@@ -35,6 +35,7 @@ export class TimerComponent implements OnInit{
   }
 
   resetTimer(){
+    this.timerSubscription?.unsubscribe();
     this.time = JSON.parse(localStorage.getItem(SETTINGS_KEY)!).competitive_time
     this.finished = false;
     this.startTimer();
