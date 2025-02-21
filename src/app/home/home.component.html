@@ -2,17 +2,12 @@
 <div *ngIf="!authLoading && !configLoading">
   <div class="grid gap-10 place-items-center w-screen">
 
-    <div class="text-center mb-10">
-      <img class="w-96 h-96" src="assets/menu.png"/>
-      <a class="text-lg font-bold">Track Matcher</a>
-      <br/>
-      <a>You can choose between two modes: Casual and Competitive</a>
-      <br/>
-      <a>Click on How To for more details!</a>
-      <br/>
-      <br/>
-      <a> Click guess to start</a>
-      <br/>
+    <div class="text-center mb-10 flex flex-col items-center mt-5">
+      <img class="w-96 h-96 mx-auto" src="assets/track_matcher.gif"/>
+      <a class="text-lg font-bold mt-4">Track Matcher</a>
+      <a class="mt-2">You can choose between two modes: Casual and Competitive</a>
+      <a class="mt-1">Click on How To for more details!</a>
+      <a class="mt-4">Click guess to start</a>
       <button (click)="start()" class="bg-black mt-4 w-48 h-16">GUESS</button>
     </div>
 
