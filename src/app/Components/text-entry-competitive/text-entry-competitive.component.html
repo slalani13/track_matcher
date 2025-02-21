@@ -1,0 +1,5 @@
+<div class="place-items-center flex">
+    <textarea (keydown.enter)="submit()" (input)="onTextChange($event)" [(ngModel)]="answer" class="text-black w-48 h-8 p-1"></textarea>
+    <button (click)="submit()"  class="hover:animate-pulse w-24 h-8 bg-red-800">Submit</button>
+</div>
+

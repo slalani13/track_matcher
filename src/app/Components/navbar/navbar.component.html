@@ -1,0 +1,60 @@
+<nav class="flex items-center justify-between p-4 bg-gray-200 dark:bg-gray-900 text-black dark:text-white">
+  <!-- Logo or Title on the Left -->
+  <!--<div class="font-bold text-lg">
+    <a href="#">Track Guesser</a>
+  </div>-->
+  
+  <!-- Navbar Links in the Center (Mobile & Desktop) -->
+  <!--
+  <div class="hidden md:flex space-x-6">
+    <a href="#" class="hover:text-blue-500">Home</a>
+    <a href="#" class="hover:text-blue-500">Casual</a>
+    <a href="#" class="hover:text-blue-500">Competitive</a>
+  </div>
+  old stuff
+  -->
+  <div class="w-full justify-center hidden md:flex space-x-6">
+    <button (click)="toggleMenu(Tabs.Settings)"  class="hover:text-blue-500">Settings</button>
+    <button (click)="toggleMenu(Tabs.Modes)" class="hover:text-blue-500">Mode Select</button>
+    <a routerLink="/" class="hover:text-blue-500">
+      Home
+    </a>
+    
+    <!-- <a routerLink="/" class="hover:text-blue-500">
+      Home
+    </a> -->
+    <button (click)="toggleMenu(Tabs.HowTo)" class="hover:text-blue-500">How To</button>
+    <button (click)="toggleMenu(Tabs.Leaderboard)"  class="hover:text-blue-500">Leaderboard</button>
+  </div>
+
+  <!--
+
+  The plan is for the navbar to house the 4 components (how-to, leaderboard, settings, mode selection)
+  -- <a routerLink="/"><h1 class="link">text</h1></a>
+    this router link only changes in the mode selection component
+    in navbar use ngif to toggle displaying tne 4 components
+  -->
+
+  <!-- Dark Mode Button on the Right -->
+</nav>
+
+
+<app-settings 
+[active]="tabActive.get(Tabs.Settings)??false"
+(activeChange)="update_tabs()">
+</app-settings>
+
+<app-how-to 
+[active]="tabActive.get(Tabs.HowTo)??false"
+(activeChange)="update_tabs()">
+</app-how-to>
+
+<app-mode-select 
+[active]="tabActive.get(Tabs.Modes)??false"
+(activeChange)="update_tabs()">
+</app-mode-select>
+
+<app-leaderboard 
+[active]="tabActive.get(Tabs.Leaderboard)??false"
+(activeChange)="update_tabs()">
+</app-leaderboard>

@@ -1,0 +1,16 @@
+<div class="grid grid-cols-1 gap-10 mb-10">
+    <h1 class="text-xl font-bold flex flex-wrap justify-center ">{{ artist }}</h1>
+    <div class="flex flex-wrap justify-center gap-2">
+        <ng-container *ngFor="let char of track_name_seen">
+            <div *ngIf="char === ' '; else letter" class="w-full"></div>
+            <ng-template #letter>
+                <div 
+                    class="items-center justify-center flex h-16 w-16 bg-black hover:animate-bounce"
+                    [ngClass]="{'text-green-300': isVowel(char), 'text-white': !isVowel(char) || notArchitect()}"
+                >
+                    {{ char }}
+                </div>
+            </ng-template>
+        </ng-container>
+    </div>
+</div>

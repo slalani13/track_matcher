@@ -1,0 +1,8 @@
+<div class="place-items-center flex flex-col">
+    <div class=" flex">
+        <textarea [(ngModel)]="answer" class="w-48 h-8 text-black"></textarea>
+        <button (keydown.enter)="submits()"  (click)="submits()"  class="hover:animate-pulse w-24 h-8 bg-red-800">Submit</button>
+    </div>
+    <p *ngIf="isCorrect === true" class="text-green-500">Correct! 🎉</p>
+    <p *ngIf="isCorrect === false" class="text-red-500">Wrong answer. Try again! ❌</p>
+</div>

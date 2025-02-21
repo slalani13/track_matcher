@@ -1,0 +1,10 @@
+<div class="grid grid-cols-1 gap-2 h-full place-items-center">
+    <a 
+    *ngIf="showStatus" 
+    class="animate-pulse w-48 h-8 place-items-center flex justify-center text-xl"
+    [ngClass]="answerCorrect ? 'bg-green-500' : 'bg-red-500'"
+    >
+    {{ answerCorrect ? 'CORRECT' : 'INCORRECT' }}
+    </a>
+    <a class="w-48 h-8 bg-black place-items-center flex justify-center text-xl"> {{points}} </a>
+</div>

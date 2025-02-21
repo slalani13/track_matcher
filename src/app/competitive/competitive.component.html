@@ -1,0 +1,21 @@
+<div class="flex flex-col">
+    <div class="flex flex-col items-center flex-[0.5] mt-10">
+        <app-track-data-competitive [chosenClass]="chosen_class" [numAttempts]="attempts" [trackName]="track_name" [artist]="artist_name"></app-track-data-competitive>
+    </div>
+
+    <div class="flex flex-col flex-[0.5] gap-4 items-center">
+        <button (click)="skipTrack()" class=" hover:animate-pulse w-24 h-8 bg-black mb-5">Skip</button>
+
+        <app-text-entry-competitive 
+            [correctAnswer]="track_name"
+            (answerCorrect)="onAnswerSubmit($event)">
+        </app-text-entry-competitive>
+
+        <div class="flex gap-4">
+            <app-timer #timer (gameOver)="gameFinish()"></app-timer>
+            <app-scoring [showStatus]="showAnswerStatus" #scoring></app-scoring>
+        </div>
+    </div>
+</div>
+
+<app-game-over-competitive (resetGame)="resetGame()" [active]="isGameOver" #gameOver></app-game-over-competitive>

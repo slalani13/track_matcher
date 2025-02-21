@@ -1,0 +1,26 @@
+<div *ngIf="active" class="w-screen h-screen bg-black bg-opacity-50 fixed top-0 left-0 flex items-center justify-center">
+  <div class="w-96 h-96 bg-black text-white absolute z-10 flex flex-col items-center justify-start p-4">
+        <app-close-button (click)="closePopup()" class="absolute top-4 right-4"></app-close-button>
+      <div class="flex flex-col">
+        <!-- Leaderboard display -->
+        <div *ngIf="leaderboard.length > 0; else noEntries" class="w-full">
+          <p class="text-xl text-center flex justify-center items-start w-full">Leaderboard</p>
+          <div class="max-h-64 overflow-y-auto w-full mt-2">
+            <ul>
+              <li *ngFor="let entry of leaderboard" class="p-2 m-2 rounded-lg text-white flex justify-between items-center shadow-md">
+                <span class="text-red-400">Username:</span> 
+                <span class="mx-2">{{ entry.name }}</span> 
+                <span class="text-yellow-400">Score:</span> 
+                <span class="mx-2">{{ entry.score }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ng-template #noEntries>
+          <p>No leaderboard entries yet.</p>
+      </ng-template>
+    </div>
+</div>
+
+

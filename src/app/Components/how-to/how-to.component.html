@@ -1,0 +1,23 @@
+<div *ngIf="active" class="w-screen h-screen bg-black bg-opacity-50 fixed top-0 left-0 flex items-center justify-center">
+    <div class="w-[40rem] h-[40rem] bg-black text-white absolute z-10 flex items-center justify-center p-6">
+        <app-close-button (click)="closePopup()" class="absolute top-4 right-4"></app-close-button>
+        <div class="flex w-full">
+            <div class="flex-1 text-center px-4 gap-2">
+                <a class="text-lg font-bold block mb-2">Casual</a>
+                <img class="w-48 h-48 mx-auto" src="assets/casual.png"/>
+                <a class="block mt-2">This is an untimed mode that plays like anagrams.
+                    The goal is to unscramble all words of a given track for a specific artist. 
+                    You can skip tracks you do not know.</a>
+            </div>
+            <div class="flex-1 text-center px-4 gap-2">
+                <a class="text-lg font-bold block mb-2">Competitive</a>
+                <img class="w-48 h-48 mx-auto" src="assets/competitive.png"/>
+                <a class="block mt-2">This is a timed and scored mode that plays like hangman. 
+                    The goal is to fill in the first 3 words of a given track of a randomly selected artist. 
+                    You have two different classes that reveal characters differently. 
+                    You can skip tracks giving you trouble to maximize score.
+                    You can input your score into a local leaderboard after.</a>
+            </div>
+        </div>
+    </div>
+</div>

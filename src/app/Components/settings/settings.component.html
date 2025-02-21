@@ -1,0 +1,30 @@
+<div *ngIf="active" class="w-screen h-screen bg-black bg-opacity-50 fixed top-0 left-0 flex items-center justify-center">
+    <div class="w-96 h-96 bg-black text-white absolute z-10 flex items-center justify-center">
+        <app-close-button (click)="closePopup()" class="absolute top-4 right-4"></app-close-button>
+
+        <div class="grid grid-cols-1 gap-2 w-screen flex place-items-center">
+            <a class="text-lg font-bold mb-10">Settings</a>
+            <div>
+                <a>Competitive Game Time: </a>
+                <select [(ngModel)]="time" (ngModelChange)="onTimeChange()"  class="text-black p-2 rounded-l border h-12 w-16">
+                    <option *ngFor="let t of times">{{ t }}</option>
+                </select>
+            </div>
+            <a>Current Competitive Game Time: {{currentConfig.competitive_time}}</a>
+            <div>
+                <a>Theme: </a>
+                <button (click)="toggleDarkMode()" class="p-2 rounded h-12 w-12 bg-gray-300 dark:bg-gray-700">🌙</button>
+            </div>
+            <div>
+                <a>View leaderboard: </a>
+                <button (click)="openLeaderboard()" class="p-2 rounded h-12 w-16 bg-slate-800 p-2">Open</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-leaderboard 
+[active]="leaderboard_active"
+(activeChange)="closeLeaderboard()">
+</app-leaderboard>
+

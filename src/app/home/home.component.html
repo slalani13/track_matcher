@@ -1,12 +1,35 @@
 <div *ngIf="authLoading || configLoading">Loading...</div>
 <div *ngIf="!authLoading && !configLoading">
-  Genre:
-  <select [(ngModel)]="selectedGenre" (ngModelChange)="setGenre($event)">
-    <option [value]=""></option>
-    <option [value]="genre" *ngFor="let genre of genres">
-      {{ genre }}
-    </option>
-  </select>
-  <app-navbar></app-navbar>
-  <h1 class="text-3xl font-bold text-blue-500">Hello Tailwind!</h1>
+  <div class="grid gap-10 place-items-center w-screen">
+
+    <div class="text-center mb-10 flex flex-col items-center mt-5">
+      <img class="w-96 h-96 mx-auto" src="assets/track_matcher.gif"/>
+      <a class="text-lg font-bold mt-4">Track Matcher</a>
+      <a class="mt-2">You can choose between two modes: Casual and Competitive</a>
+      <a class="mt-1">Click on How To for more details!</a>
+      <a class="mt-4">Click guess to start</a>
+      <button (click)="start()" class="hover:animate-pulse bg-black mt-4 w-48 h-16">GUESS</button>
+    </div>
+
+
+    <!--
+    <div class="text-white space-x-2">
+      <span>Genre:</span>
+      <select [(ngModel)]="selectedGenre" (ngModelChange)="setGenre($event)" class="p-1 bg-white text-black">
+        <option [value]=""></option>
+        <option class="text-black" [value]="genre" *ngFor="let genre of genres">
+          {{ genre }}
+        </option>
+      </select>
+      <br/>
+      <a>This is just placeholder</a>
+    </div>
+    -->
+    
+  </div>
 </div>
+
+<app-mode-select 
+[active]="started"
+(activeChange)="cancelStart()">
+</app-mode-select>

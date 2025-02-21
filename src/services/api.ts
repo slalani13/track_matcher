@@ -59,4 +59,5 @@ const fetchFromSpotify = ({ token, endpoint, params }: any) => {
   return request(url, options);
 };
 
+
 export default fetchFromSpotify;

@@ -1,0 +1,15 @@
+<div *ngIf="active" class="w-screen h-screen bg-black bg-opacity-50 fixed top-0 left-0 flex items-center justify-center">
+    <div class="w-96 h-96 bg-black text-white absolute z-10 p-4 flex flex-col items-center justify-center">
+        <app-close-button routerLink="/competitive" (click)="close()" class="absolute top-4 right-4"></app-close-button>
+
+        <a class="text-lg font-bold">Game Over</a>
+        <app-leaderboard [active]="false" #leaderboard></app-leaderboard>
+
+        <div class="flex items-center space-x-2 mt-4">
+            <textarea (input)="onTextChange($event)" [(ngModel)]="username" class="text-black w-24 h-8 p-1"></textarea>
+            <button (click)="addToLeaderboard()" class="w-24 h-8 bg-red-800">Submit</button>
+        </div>
+        
+    </div>
+
+</div>
