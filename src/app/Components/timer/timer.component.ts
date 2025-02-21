@@ -11,7 +11,7 @@ const SETTINGS_KEY = "who's who settings"
 export class TimerComponent implements OnInit{
 
   finished:boolean = false;
-  time:number = 10;
+  time:number = 60;
   @Output() gameOver = new EventEmitter<void>();
   private timerSubscription?: Subscription;
 
@@ -21,6 +21,7 @@ export class TimerComponent implements OnInit{
 
   ngOnInit(): void {
     this.time = JSON.parse(localStorage.getItem(SETTINGS_KEY)!).competitive_time
+    this.resetTimer();
     this.startTimer();
   }
 

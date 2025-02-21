@@ -3,7 +3,7 @@
         <app-close-button routerLink="/competitive" (click)="close()" class="absolute top-4 right-4"></app-close-button>
 
         <a class="text-lg font-bold">Game Over</a>
-        <app-leaderboard #leaderboard></app-leaderboard>
+        <app-leaderboard [active]="true" #leaderboard></app-leaderboard>
 
         <div class="flex items-center space-x-2 mt-4">
             <textarea (input)="onTextChange($event)" [(ngModel)]="username" class="text-black w-24 h-8 p-1"></textarea>

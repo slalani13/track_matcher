@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 gap-2">
-    <a class="w-48 h-8 bg-black place-items-center flex justify-center text-xl"> {{answerCorrect ? 'CORRECT' : 'INCORRECT'}} </a>
+<div class="grid grid-cols-1 gap-2 h-full place-items-center">
+    <a *ngIf="firstAnswer" class="w-48 h-8 bg-black place-items-center flex justify-center text-xl"> {{answerCorrect ? 'CORRECT' : 'INCORRECT'}} </a>
     <a class="w-48 h-8 bg-black place-items-center flex justify-center text-xl"> {{points}} </a>
 </div>
