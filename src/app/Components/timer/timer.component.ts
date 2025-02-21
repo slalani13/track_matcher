@@ -22,7 +22,6 @@ export class TimerComponent implements OnInit{
   ngOnInit(): void {
     this.time = JSON.parse(localStorage.getItem(SETTINGS_KEY)!).competitive_time
     this.resetTimer();
-    this.startTimer();
   }
 
   startTimer(){
