@@ -17,7 +17,7 @@ export class SettingsComponent implements OnInit{
 
   theme:string = "dark";
   time:number = 0;
-  times:number[] = [10,20,30,60,120];
+  times:number[] = [30,60,90,120,180];
   
   constructor() { }
 
